@@ -1,0 +1,46 @@
+<div class="bad example">
+  <h3>🙅‍♂️Long and No Feedback</h3>
+  <button onclick="badWait()">Process Data</button>
+  <p id="bad-status"></p>
+</div>
+
+<div class="good example">
+  <h3>Same time but Visual Feedback 😉</h3>
+  <button onclick="goodWait()">Process Data</button>
+  <div id="good-status"></div>
+</div>
+
+<script>
+  function badWait() {
+    setTimeout(() => {
+      document.getElementById("bad-status").textContent = "Done";
+    }, 3000);
+  }
+
+  function goodWait() {
+    const status = document.getElementById("good-status");
+    status.innerHTML = '<div class = "spinner"></div> Processing ...';
+
+    setTimeout(() => {
+      status.textContent = "Done";
+    }, 3000);
+  }
+</script>
+
+<style>
+  .spinner {
+    width: 20px;
+    height: 20px;
+    border: 3px solid #f3f3f3;
+    border-top: 3px solid #3498db;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    display: inline-block;
+  }
+
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+</style>
