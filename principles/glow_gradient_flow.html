@@ -1,0 +1,42 @@
+<div class="comparison">
+  <div class="bad example">
+    <h3>No progression indication</h3>
+    <form id="bad-form">
+      <input type="text" placeholder="First Name" />
+      <input type="text" placeholder="Last Name" />
+      <input type="email" placeholder="Email" />
+      <input type="text" placeholder="Phone" />
+      <button type="submit">Submit</button>
+    </form>
+    <p id="bad-complete" style="display: none">Complete</p>
+  </div>
+  <div class="good example">
+    <h3>Progress Shown</h3>
+    <div class="progress-bar">
+      <div class="progress-fill" id="progress"></div>
+    </div>
+    <p class="progress-text">
+      <span id="filled">0</span> of 4 fields completed
+    </p>
+    <form id="good-form">
+      <input type="text" placeholder="First Name" oninput="updateProgress()" />
+      <input type="text" placeholder="Last Name" oninput="updateProgress()" />
+      <input type="email" placeholder="Email" oninput="updateProgress()" />
+      <input type="text" placeholder="Phone" oninput="updateProgress()" />
+    </form>
+    <p id="good-complete" style="display: none">Complete</p>
+  </div>
+</div>
+
+<script>
+  function updateProgress() {
+    const inputs = document.querySelectorAll("#good-form input");
+    const filled = Array.from(inputs).filter(
+      (input) => input.value.trim() !== "",
+    ).length;
+    const progress = (filled / 4) * 100;
+
+    document.getElementById("progress").style.width = progress + "%";
+    document.getElementById("filled").textContent = filled;
+  }
+</script>
