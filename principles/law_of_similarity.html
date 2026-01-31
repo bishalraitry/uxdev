@@ -1,0 +1,49 @@
+<div class="comparison">
+  <div class="example bad">
+    <h3>❌ No Visual Grouping</h3>
+    <div class="items">
+      <div class="circle blue"></div>
+      <div class="square red"></div>
+      <div class="circle red"></div>
+      <div class="square blue"></div>
+      <div class="circle blue"></div>
+      <div class="square red"></div>
+    </div>
+    <p>Hard to see which items are related</p>
+  </div>
+
+  <div class="example good">
+    <h3>✅ Similar Items Grouped</h3>
+    <div class="items">
+      <div class="circle blue"></div>
+      <div class="circle blue"></div>
+      <div class="circle blue"></div>
+      <div class="square red"></div>
+      <div class="square red"></div>
+      <div class="square red"></div>
+    </div>
+    <p>Circles clearly separate from squares</p>
+  </div>
+</div>
+
+<style>
+  .items {
+    display: flex;
+    gap: 10px;
+  }
+  .circle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+  }
+  .square {
+    width: 40px;
+    height: 40px;
+  }
+  .blue {
+    background: #3498db;
+  }
+  .red {
+    background: #e74c3c;
+  }
+</style>
